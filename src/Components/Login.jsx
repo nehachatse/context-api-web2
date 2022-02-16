@@ -3,7 +3,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { Form, Input, Button } from "./Login.styled";
 
 export default function Login() {
-  const [formData, setFormData] = React.useState({});
+  const [formData, setFormData] = React.useState({ uname: "", pass: "" });
   const { handleAuth } = React.useContext(AuthContext);
 
   const handleChange = (e) => {
@@ -20,8 +20,8 @@ export default function Login() {
     if (
       formData.uname === "" ||
       formData.uname.length < 0 ||
-      formData.pass === "" ||
-      formData.pass.length < 0
+      formData["pass"].length < 0 ||
+      formData.pass === ""
     ) {
       alert("Alle fields are required!!!");
     } else {
